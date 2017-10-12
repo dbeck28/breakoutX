@@ -8,26 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		F05CB34D1F8EA94B008626F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB34C1F8EA94B008626F2 /* AppDelegate.swift */; };
-		F05CB34F1F8EA94B008626F2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F05CB34E1F8EA94B008626F2 /* GameScene.sks */; };
-		F05CB3511F8EA94B008626F2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3501F8EA94B008626F2 /* Actions.sks */; };
-		F05CB3531F8EA94B008626F2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB3521F8EA94B008626F2 /* GameScene.swift */; };
-		F05CB3551F8EA94B008626F2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB3541F8EA94B008626F2 /* GameViewController.swift */; };
-		F05CB3581F8EA94B008626F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3561F8EA94B008626F2 /* Main.storyboard */; };
-		F05CB35A1F8EA94B008626F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3591F8EA94B008626F2 /* Assets.xcassets */; };
-		F05CB35D1F8EA94B008626F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05CB35B1F8EA94B008626F2 /* LaunchScreen.storyboard */; };
+		F05CB36A1F8EAAA7008626F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3681F8EAAA7008626F2 /* LaunchScreen.storyboard */; };
+		F05CB36B1F8EAAA7008626F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3691F8EAAA7008626F2 /* Main.storyboard */; };
+		F05CB36D1F8EAAD7008626F2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB36C1F8EAAD7008626F2 /* GameScene.swift */; };
+		F05CB36F1F8EAAE8008626F2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB36E1F8EAAE8008626F2 /* GameViewController.swift */; };
+		F05CB3731F8EAAF2008626F2 /* BallTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3711F8EAAF2008626F2 /* BallTrail.sks */; };
+		F05CB3741F8EAAF2008626F2 /* BrokenPlatform.sks in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3721F8EAAF2008626F2 /* BrokenPlatform.sks */; };
+		F05CB3761F8EAAFE008626F2 /* Playing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB3751F8EAAFE008626F2 /* Playing.swift */; };
+		F05CB37D1F8EAB09008626F2 /* BambooBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3781F8EAB09008626F2 /* BambooBreak.wav */; };
+		F05CB37E1F8EAB09008626F2 /* game-over.wav in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3791F8EAB09008626F2 /* game-over.wav */; };
+		F05CB37F1F8EAB09008626F2 /* game-won.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F05CB37A1F8EAB09008626F2 /* game-won.mp3 */; };
+		F05CB3801F8EAB09008626F2 /* paddleBlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = F05CB37B1F8EAB09008626F2 /* paddleBlip.wav */; };
+		F05CB3811F8EAB09008626F2 /* pongblip.wav in Resources */ = {isa = PBXBuildFile; fileRef = F05CB37C1F8EAB09008626F2 /* pongblip.wav */; };
+		F05CB3831F8EAB13008626F2 /* WaitingForTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */; };
+		F05CB3851F8EAB40008626F2 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB3841F8EAB40008626F2 /* GameOver.swift */; };
+		F05CB3861F8EDCC6008626F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3661F8EAA0B008626F2 /* Assets.xcassets */; };
+		F05CB3881F8F3A64008626F2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3641F8EA9EE008626F2 /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F05CB3491F8EA94B008626F2 /* Bricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05CB34C1F8EA94B008626F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F05CB34E1F8EA94B008626F2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		F05CB3501F8EA94B008626F2 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		F05CB3521F8EA94B008626F2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		F05CB3541F8EA94B008626F2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		F05CB3571F8EA94B008626F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F05CB3591F8EA94B008626F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F05CB35C1F8EA94B008626F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F05CB35E1F8EA94B008626F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F05CB3641F8EA9EE008626F2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		F05CB3661F8EAA0B008626F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F05CB3681F8EAAA7008626F2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F05CB3691F8EAAA7008626F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F05CB36C1F8EAAD7008626F2 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		F05CB36E1F8EAAE8008626F2 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		F05CB3711F8EAAF2008626F2 /* BallTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BallTrail.sks; sourceTree = "<group>"; };
+		F05CB3721F8EAAF2008626F2 /* BrokenPlatform.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BrokenPlatform.sks; sourceTree = "<group>"; };
+		F05CB3751F8EAAFE008626F2 /* Playing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playing.swift; sourceTree = "<group>"; };
+		F05CB3781F8EAB09008626F2 /* BambooBreak.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BambooBreak.wav; sourceTree = "<group>"; };
+		F05CB3791F8EAB09008626F2 /* game-over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-over.wav"; sourceTree = "<group>"; };
+		F05CB37A1F8EAB09008626F2 /* game-won.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-won.mp3"; sourceTree = "<group>"; };
+		F05CB37B1F8EAB09008626F2 /* paddleBlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = paddleBlip.wav; sourceTree = "<group>"; };
+		F05CB37C1F8EAB09008626F2 /* pongblip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pongblip.wav; sourceTree = "<group>"; };
+		F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForTap.swift; sourceTree = "<group>"; };
+		F05CB3841F8EAB40008626F2 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,16 +79,41 @@
 			isa = PBXGroup;
 			children = (
 				F05CB34C1F8EA94B008626F2 /* AppDelegate.swift */,
-				F05CB34E1F8EA94B008626F2 /* GameScene.sks */,
-				F05CB3501F8EA94B008626F2 /* Actions.sks */,
-				F05CB3521F8EA94B008626F2 /* GameScene.swift */,
-				F05CB3541F8EA94B008626F2 /* GameViewController.swift */,
-				F05CB3561F8EA94B008626F2 /* Main.storyboard */,
-				F05CB3591F8EA94B008626F2 /* Assets.xcassets */,
-				F05CB35B1F8EA94B008626F2 /* LaunchScreen.storyboard */,
+				F05CB3641F8EA9EE008626F2 /* GameScene.sks */,
+				F05CB3661F8EAA0B008626F2 /* Assets.xcassets */,
+				F05CB36C1F8EAAD7008626F2 /* GameScene.swift */,
+				F05CB3701F8EAAF2008626F2 /* Particles */,
+				F05CB36E1F8EAAE8008626F2 /* GameViewController.swift */,
+				F05CB3771F8EAB09008626F2 /* Sounds */,
+				F05CB3751F8EAAFE008626F2 /* Playing.swift */,
+				F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */,
+				F05CB3841F8EAB40008626F2 /* GameOver.swift */,
+				F05CB3681F8EAAA7008626F2 /* LaunchScreen.storyboard */,
+				F05CB3691F8EAAA7008626F2 /* Main.storyboard */,
 				F05CB35E1F8EA94B008626F2 /* Info.plist */,
 			);
 			path = Bricks;
+			sourceTree = "<group>";
+		};
+		F05CB3701F8EAAF2008626F2 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				F05CB3711F8EAAF2008626F2 /* BallTrail.sks */,
+				F05CB3721F8EAAF2008626F2 /* BrokenPlatform.sks */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
+		F05CB3771F8EAB09008626F2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F05CB3781F8EAB09008626F2 /* BambooBreak.wav */,
+				F05CB3791F8EAB09008626F2 /* game-over.wav */,
+				F05CB37A1F8EAB09008626F2 /* game-won.mp3 */,
+				F05CB37B1F8EAB09008626F2 /* paddleBlip.wav */,
+				F05CB37C1F8EAB09008626F2 /* pongblip.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,11 +175,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F05CB3581F8EA94B008626F2 /* Main.storyboard in Resources */,
-				F05CB34F1F8EA94B008626F2 /* GameScene.sks in Resources */,
-				F05CB35A1F8EA94B008626F2 /* Assets.xcassets in Resources */,
-				F05CB35D1F8EA94B008626F2 /* LaunchScreen.storyboard in Resources */,
-				F05CB3511F8EA94B008626F2 /* Actions.sks in Resources */,
+				F05CB36A1F8EAAA7008626F2 /* LaunchScreen.storyboard in Resources */,
+				F05CB3811F8EAB09008626F2 /* pongblip.wav in Resources */,
+				F05CB3861F8EDCC6008626F2 /* Assets.xcassets in Resources */,
+				F05CB3881F8F3A64008626F2 /* GameScene.sks in Resources */,
+				F05CB37F1F8EAB09008626F2 /* game-won.mp3 in Resources */,
+				F05CB3741F8EAAF2008626F2 /* BrokenPlatform.sks in Resources */,
+				F05CB3731F8EAAF2008626F2 /* BallTrail.sks in Resources */,
+				F05CB37E1F8EAB09008626F2 /* game-over.wav in Resources */,
+				F05CB3801F8EAB09008626F2 /* paddleBlip.wav in Resources */,
+				F05CB37D1F8EAB09008626F2 /* BambooBreak.wav in Resources */,
+				F05CB36B1F8EAAA7008626F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,32 +196,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F05CB3531F8EA94B008626F2 /* GameScene.swift in Sources */,
-				F05CB3551F8EA94B008626F2 /* GameViewController.swift in Sources */,
+				F05CB3831F8EAB13008626F2 /* WaitingForTap.swift in Sources */,
+				F05CB3761F8EAAFE008626F2 /* Playing.swift in Sources */,
+				F05CB36D1F8EAAD7008626F2 /* GameScene.swift in Sources */,
+				F05CB3851F8EAB40008626F2 /* GameOver.swift in Sources */,
+				F05CB36F1F8EAAE8008626F2 /* GameViewController.swift in Sources */,
 				F05CB34D1F8EA94B008626F2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F05CB3561F8EA94B008626F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F05CB3571F8EA94B008626F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F05CB35B1F8EA94B008626F2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F05CB35C1F8EA94B008626F2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F05CB35F1F8EA94B008626F2 /* Debug */ = {
@@ -311,6 +344,7 @@
 				F05CB3631F8EA94B008626F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
