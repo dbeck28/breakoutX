@@ -31,6 +31,7 @@ let PaddleCategoryName = "paddle"
 let BlockCategoryName = "block"
 let GameMessageName = "gameMessage"
 let ScoreLabelName = "scorelabel"
+let LifeLabelName = "lifelabel"
 
 let ScoreCategory  : UInt32 = 0x1 << 5
 let BallCategory   : UInt32 = 0x1 << 0
@@ -39,14 +40,14 @@ let BlockCategory  : UInt32 = 0x1 << 2
 let PaddleCategory : UInt32 = 0x1 << 3
 let BorderCategory : UInt32 = 0x1 << 4
 let ScoreLabelCategory : UInt32 = 0x1 << 5
-
-
-// var shipHealth: Float = 1.0
+let LifeLabelCategory : UInt32 = 0x1 << 6
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var isFingerOnPaddle = false
-    private var score = 0
+    var score = 0
+    var blockcount = 0
+    var life = 50 //actually 3, but a hit counts as 2 lives one on the hit, one on the rebound
     
     lazy var gameState: GKStateMachine = GKStateMachine(states: [
         WaitingForTap(scene: self),
@@ -65,10 +66,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // to add to score
     func updateScore() {
-        var scorelabel = childNode(withName: ScoreLabelName) as! SKLabelNode
-        scorelabel = childNode(withName: "scorelabel") as! SKLabelNode
+        let scorelabel = childNode(withName: ScoreLabelName) as! SKLabelNode
         score += 10
         scorelabel.text = String(score)
+    }
+    
+    func updateLife() {
+        let lifelabel = childNode(withName: LifeLabelName) as! SKLabelNode
+        life -= 5
+        lifelabel.text = "Life: " + String(life)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -85,14 +91,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         // 3
         if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BottomCategory {
-            print("Hit bottom. First contact has been made.")
-        }
-        
+            if life > 5 {
+                updateLife()
+                } else {
+                var lifelabel = childNode(withName: LifeLabelName) as! SKLabelNode
+                lifelabel.text = "It's Over"
+                gameState.enter(GameOver.self)
+                }
+            }
+
         if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BlockCategory {
             breakBlock(node: secondBody.node!)
+            blockcount += 1
             updateScore()
-            //TODO: check if the game has been won
+            if blockcount == 16 {
+                buildBlocks()
+                blockcount = 0
+            }//TODO: check if the game has been won
         }
+        
     }
     
     // function to build 2 rows of blocks
@@ -124,6 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(block)
         }
     }
+    
     
     func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat {
         let rand: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
@@ -218,6 +236,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         gameState.update(deltaTime: currentTime)
     }
+
   
 }
 

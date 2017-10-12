@@ -33,7 +33,7 @@ class Playing: GKState {
     }
   }
   
-  override func update(deltaTime seconds: TimeInterval) { //to stop th ever bouncing ball
+  override func update(deltaTime seconds: TimeInterval) { //to stop the ever bouncing ball
     let ball = scene.childNode(withName: BallCategoryName) as! SKSpriteNode
     let maxSpeed: CGFloat = 400.0
     
@@ -50,10 +50,11 @@ class Playing: GKState {
     }
     
     if speed > maxSpeed {
-        ball.physicsBody!.linearDamping = 0.4
+        ball.physicsBody!.linearDamping = 0.3
     } else {
         ball.physicsBody!.linearDamping = 0.0
     }
+    
   }
   
   override func isValidNextState(_ stateClass: AnyClass) -> Bool {
