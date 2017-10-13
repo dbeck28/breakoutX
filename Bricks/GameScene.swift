@@ -163,7 +163,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var blockLine = 0
         
         for i in 0..<numberOfBlocks {
-            let block = SKSpriteNode(imageNamed: "block.png")
+            let block = SKSpriteNode(imageNamed: "block-1.png")
             blockLine = blockLine + 1
             if blockLine <= 8 {
                 block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i) + 0.5) * blockWidth, y: frame.height * 0.7)
