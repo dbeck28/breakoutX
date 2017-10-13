@@ -24,15 +24,25 @@ let HeartCategory : UInt32 = 0x1 << 8
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var isFingerOnPaddle = false
     var score = 0
+    var totalScore = 0.0
     var blockcount = 0
     var life = 100 //actually 3, but a hit counts as 2 lives one on the hit, one on the rebound
+    var totalBlocksBroken = 0.0
     
     lazy var gameState: GKStateMachine = GKStateMachine(states: [
         WaitingForTap(scene: self),
         Playing(scene: self),
         GameOver(scene: self)])
     
+    let blipSound = SKAction.playSoundFileNamed("pongblip", waitForCompletion: false)
+    let blipPaddleSound = SKAction.playSoundFileNamed("paddleBlip", waitForCompletion: false)
+    let bambooBreakSound = SKAction.playSoundFileNamed("BambooBreak", waitForCompletion: false)
+    let gameWonSound = SKAction.playSoundFileNamed("game-won", waitForCompletion: false)
+    let coinSound = SKAction.playSoundFileNamed("coins", waitForCompletion: false)
+    let burpSound = SKAction.playSoundFileNamed("burp", waitForCompletion: false)
+    
     func breakBlock(node: SKNode) {
+        run(bambooBreakSound)
         let particles = SKEmitterNode(fileNamed: "BrokenPlatform")!
         particles.position = node.position
         particles.zPosition = 3
@@ -50,8 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gold.name = GoldName
             gold.physicsBody!.categoryBitMask = GoldCategory
             gold.zPosition = 2
-            // Make Gold Move
-           
+            // make gold move
             let actionMove = SKAction.move(to: CGPoint(x: node.position.x, y: -50.0), duration: TimeInterval(5))
             let killGold = SKAction.removeFromParent()
                 gold.run(SKAction.sequence([actionMove, killGold]))
@@ -67,8 +76,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             heart.name = HeartName
             heart.physicsBody!.categoryBitMask = HeartCategory
             heart.zPosition = 2
-            // Make Gold Move
-            
+            // Make Heart Move
             let actionMove = SKAction.move(to: CGPoint(x: node.position.x, y: -50.0), duration: TimeInterval(5))
             let killHeart = SKAction.removeFromParent()
             heart.run(SKAction.sequence([actionMove, killHeart]))
@@ -81,17 +89,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func updateScore() {
         let scorelabel = childNode(withName: ScoreLabelName) as! SKLabelNode
         score += 10
-        scorelabel.text = String(score)
+        totalBlocksBroken += 1.0
+        scorelabel.text = String(score) + " " + "Bonus: " + String(totalBlocksBroken * 0.1)
     }
     
+    // to updateLife as the ball slowly dies
     func updateLife() {
         let lifelabel = childNode(withName: LifeLabelName) as! SKLabelNode
         life -= 5
         lifelabel.text = "Life: " + String(life)
     }
     
-    
+    // to update score as you catch gold
     func catchGold(node: SKNode) {
+        run(coinSound)
         node.removeFromParent()
         score += 90
         updateScore()
@@ -99,6 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func catchHeart(node: SKNode) {
         let lifelabel = childNode(withName: LifeLabelName) as! SKLabelNode
+        run(burpSound)
         node.removeFromParent()
         life += 25
         lifelabel.text = "Life: " + String(life)
@@ -123,6 +135,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if life > 5 {
                 updateLife()
                 } else {
+                totalScore += totalScore * (totalBlocksBroken * 0.1)
                 let lifelabel = childNode(withName: LifeLabelName) as! SKLabelNode
                 lifelabel.text = "Game Over"
                 gameState.enter(GameOver.self)
@@ -147,6 +160,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Paddle to Heart
         if firstBody.categoryBitMask == PaddleCategory && secondBody.categoryBitMask == HeartCategory {
             catchHeart(node: secondBody.node!)
+        }
+        
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BorderCategory {
+            run(blipSound)
+        }
+        // 2
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == PaddleCategory {
+            run(blipPaddleSound)
         }
         
     }
@@ -213,12 +234,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     ball.physicsBody!.categoryBitMask = BallCategory
     paddle.physicsBody!.categoryBitMask = PaddleCategory
     borderBody.categoryBitMask = BorderCategory
-    ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory | GoldCategory
+    ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory | GoldCategory | BorderCategory
     paddle.physicsBody!.contactTestBitMask = GoldCategory | HeartCategory
     bottom.physicsBody!.contactTestBitMask = BallCategory
   
     
     buildBlocks()
+    
+    // ball sparks
+    let trailNode = SKNode()
+    trailNode.zPosition = 1
+    addChild(trailNode)
+    // 2
+    let trail = SKEmitterNode(fileNamed: "BallTrail")!
+    // 3
+    trail.targetNode = trailNode
+    // 4
+    ball.addChild(trail)
     
  
     // for tap to play button
