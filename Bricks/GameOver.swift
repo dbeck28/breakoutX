@@ -1,10 +1,3 @@
-//
-//  GameOver.swift
-//  BreakoutSpriteKitTutorial
-//
-//  Created by Michael Briscoe on 1/16/16.
-//  Copyright © 2016 Razeware LLC. All rights reserved.
-//
 
 import SpriteKit
 import GameplayKit

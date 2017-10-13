@@ -1,27 +1,3 @@
-//
-//  GameScene.swift
-//  Bamboo Breakout
-/**
- * Copyright (c) 2016 Razeware LLC
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */ 
 
 import SpriteKit
 import GameplayKit
@@ -33,6 +9,7 @@ let GameMessageName = "gameMessage"
 let ScoreLabelName = "scorelabel"
 let LifeLabelName = "lifelabel"
 let GoldName = "gold"
+let HeartName = "heart"
 
 let BallCategory   : UInt32 = 0x1 << 0
 let BottomCategory : UInt32 = 0x1 << 1
@@ -42,21 +19,18 @@ let BorderCategory : UInt32 = 0x1 << 4
 let ScoreLabelCategory : UInt32 = 0x1 << 5
 let LifeLabelCategory : UInt32 = 0x1 << 6
 let GoldCategory : UInt32 = 0x1 << 7
+let HeartCategory : UInt32 = 0x1 << 8
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var isFingerOnPaddle = false
     var score = 0
     var blockcount = 0
-    var life = 50 //actually 3, but a hit counts as 2 lives one on the hit, one on the rebound
+    var life = 100 //actually 3, but a hit counts as 2 lives one on the hit, one on the rebound
     
     lazy var gameState: GKStateMachine = GKStateMachine(states: [
         WaitingForTap(scene: self),
         Playing(scene: self),
         GameOver(scene: self)])
-    
-    func generateGold() {
-        
-    }
     
     func breakBlock(node: SKNode) {
         let particles = SKEmitterNode(fileNamed: "BrokenPlatform")!
@@ -65,40 +39,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(particles)
         particles.run(SKAction.sequence([SKAction.wait(forDuration: 1.0),
                                          SKAction.removeFromParent()]))
-         if score % 150 == 0 {
+        node.removeFromParent()
+        // Gold Bonus on block break
+         if (score > 10) && (score % 150 == 0) {
             let gold = SKSpriteNode(imageNamed: "gold.png")
             gold.position = node.position
             gold.physicsBody = SKPhysicsBody(rectangleOf: gold.frame.size)
-            gold.physicsBody!.allowsRotation = false
-            gold.physicsBody!.friction = 0.0
-            gold.physicsBody!.affectedByGravity = true
-            gold.physicsBody!.isDynamic = false
+            gold.physicsBody!.density = 1000
+            gold.physicsBody!.isDynamic = true
             gold.name = GoldName
             gold.physicsBody!.categoryBitMask = GoldCategory
             gold.zPosition = 2
-            gold.physicsBody!.applyImpulse(CGVector(dx: 0, dy: -30.0))
-            addChild(gold)         }
-        node.removeFromParent()
-    }
-    
-    
-    func goldContact (contact: SKPhysicsContact) {
-        var firstBody: SKPhysicsBody
-        var secondBody: SKPhysicsBody
-        // 2
-        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-            firstBody = contact.bodyA
-            secondBody = contact.bodyB
-        } else {
-            firstBody = contact.bodyB
-            secondBody = contact.bodyA
+            // Make Gold Move
+           
+            let actionMove = SKAction.move(to: CGPoint(x: node.position.x, y: -50.0), duration: TimeInterval(5))
+            let killGold = SKAction.removeFromParent()
+                gold.run(SKAction.sequence([actionMove, killGold]))
+            addChild(gold)
         }
         
-        if firstBody.categoryBitMask == PaddleCategory && secondBody.categoryBitMask == GoldCategory {
-            killGold(node: secondBody.node!)
+        if (score > 10) && (score % 250 == 0) {
+            let heart = SKSpriteNode(imageNamed: "heart.png")
+            heart.position = node.position
+            heart.physicsBody = SKPhysicsBody(rectangleOf: heart.frame.size)
+            heart.physicsBody!.density = 1000
+            heart.physicsBody!.isDynamic = true
+            heart.name = HeartName
+            heart.physicsBody!.categoryBitMask = HeartCategory
+            heart.zPosition = 2
+            // Make Gold Move
+            
+            let actionMove = SKAction.move(to: CGPoint(x: node.position.x, y: -50.0), duration: TimeInterval(5))
+            let killHeart = SKAction.removeFromParent()
+            heart.run(SKAction.sequence([actionMove, killHeart]))
+            addChild(heart)
         }
-
     }
+    
     
     // to add to score
     func updateScore() {
@@ -107,18 +84,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scorelabel.text = String(score)
     }
     
-    
-    func killGold(node: SKNode) {
-        node.removeFromParent()
-        score += 90
-        updateScore()
-    }
-    
     func updateLife() {
         let lifelabel = childNode(withName: LifeLabelName) as! SKLabelNode
         life -= 5
         lifelabel.text = "Life: " + String(life)
     }
+    
+    
+    func catchGold(node: SKNode) {
+        node.removeFromParent()
+        score += 90
+        updateScore()
+    }
+    
+    func catchHeart(node: SKNode) {
+        let lifelabel = childNode(withName: LifeLabelName) as! SKLabelNode
+        node.removeFromParent()
+        life += 25
+        lifelabel.text = "Life: " + String(life)
+
+    }
+    
     
     func didBegin(_ contact: SKPhysicsContact) {
         // 1
@@ -151,12 +137,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if blockcount == 16 {
                 buildBlocks()
                 blockcount = 0
-            }//TODO: check if the game has been won
+            }
         
         }
-        
-        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == GoldCategory {
-            killGold(node: secondBody.node!)
+        // Paddle to Gold
+        if firstBody.categoryBitMask == PaddleCategory && secondBody.categoryBitMask == GoldCategory {
+            catchGold(node: secondBody.node!)
+        }
+        // Paddle to Heart
+        if firstBody.categoryBitMask == PaddleCategory && secondBody.categoryBitMask == HeartCategory {
+            catchHeart(node: secondBody.node!)
         }
         
     }
@@ -216,14 +206,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     bottom.physicsBody = SKPhysicsBody(edgeLoopFrom: bottomRect)
     addChild(bottom)
     let paddle = childNode(withName: PaddleCategoryName) as! SKSpriteNode
+
+    
    
     bottom.physicsBody!.categoryBitMask = BottomCategory
     ball.physicsBody!.categoryBitMask = BallCategory
     paddle.physicsBody!.categoryBitMask = PaddleCategory
     borderBody.categoryBitMask = BorderCategory
     ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory | GoldCategory
-    paddle.physicsBody!.contactTestBitMask = GoldCategory
-    bottom.physicsBody!.contactTestBitMask = GoldCategory
+    paddle.physicsBody!.contactTestBitMask = GoldCategory | HeartCategory
+    bottom.physicsBody!.contactTestBitMask = BallCategory
   
     
     buildBlocks()
