@@ -1,6 +1,6 @@
 # breakoutX
 
-A fast-paced breakout game for iOS built using the raywenderlich.com Bamboo Breakout as a template.
+A fast-paced breakout game for iOS
 
 To use:
 
