@@ -11,6 +11,7 @@ let LifeLabelName = "lifelabel"
 let GoldName = "gold"
 let HeartName = "heart"
 
+
 let BallCategory   : UInt32 = 0x1 << 0
 let BottomCategory : UInt32 = 0x1 << 1
 let BlockCategory  : UInt32 = 0x1 << 2
@@ -30,6 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var totalBlocksBroken = 0.0
     
     lazy var gameState: GKStateMachine = GKStateMachine(states: [
+        MainMenu(scene: self),
         WaitingForTap(scene: self),
         Playing(scene: self),
         GameOver(scene: self)])
@@ -242,6 +244,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     buildBlocks()
     
     // ball sparks
+    
     let trailNode = SKNode()
     trailNode.zPosition = 1
     addChild(trailNode)
@@ -260,8 +263,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     gameMessage.zPosition = 4
     gameMessage.setScale(0.0)
     addChild(gameMessage)
-    gameState.enter(WaitingForTap.self)
-  }
+//    gameState.enter(WaitingForTap.self)
+    
+    gameState.enter(MainMenu.self)
+    }
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

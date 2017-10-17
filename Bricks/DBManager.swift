@@ -17,8 +17,9 @@ class DBManager: NSObject {
     let field_Users_Email = "email"
     let field_Users_Password = "password"
     let field_Users_Tokens = "tokens"
+    let field_Users_HighScore = "highscore"
     
-    let databaseFileName = "database.sqlite"
+    let databaseFileName = "bricksdatabase.sqlite"
     
     var pathToDatabase: String!
     
@@ -41,12 +42,13 @@ class DBManager: NSObject {
             if database != nil {
                 // Open the database.
                 if database.open() {
-                    let createUsersTable = "create table users (\(field_Users_UserID) integer primary key autoincrement not null, \(field_Users_UserName) text not null, \(field_Users_Email) text not null, \(field_Users_Password) text not null), \(field_Users_Tokens) integer not nulls"
+                    let createUsersTable = "create table users (\(field_Users_UserID) integer primary key autoincrement not null, \(field_Users_UserName) text not null, \(field_Users_Email) text not null, \(field_Users_Password) text not null), \(field_Users_Tokens) integer not null, \(field_Users_HighScore) decimal not null"
                     
                     
                     do {
                         try database.executeUpdate(createUsersTable, values: nil)
                         created = true
+                        print("dbcreated")
                     }
                     catch {
                         print("Could not create table.")
