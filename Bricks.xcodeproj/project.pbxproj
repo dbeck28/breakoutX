@@ -26,6 +26,13 @@
 		F05CB3851F8EAB40008626F2 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB3841F8EAB40008626F2 /* GameOver.swift */; };
 		F05CB3861F8EDCC6008626F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3661F8EAA0B008626F2 /* Assets.xcassets */; };
 		F05CB3881F8F3A64008626F2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3641F8EA9EE008626F2 /* GameScene.sks */; };
+		F0CE5A341F958142000E02E2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CE5A2A1F958142000E02E2 /* FMDatabase.m */; };
+		F0CE5A351F958142000E02E2 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CE5A2C1F958142000E02E2 /* FMDatabaseAdditions.m */; };
+		F0CE5A361F958142000E02E2 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CE5A2E1F958142000E02E2 /* FMDatabasePool.m */; };
+		F0CE5A371F958142000E02E2 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CE5A301F958142000E02E2 /* FMDatabaseQueue.m */; };
+		F0CE5A381F958142000E02E2 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CE5A331F958142000E02E2 /* FMResultSet.m */; };
+		F0CE5A3B1F9581C3000E02E2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F0CE5A3A1F9581C3000E02E2 /* libsqlite3.tbd */; };
+		F0CE5A3F1F96577D000E02E2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CE5A3E1F96577D000E02E2 /* DBManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +57,20 @@
 		F05CB37C1F8EAB09008626F2 /* pongblip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pongblip.wav; sourceTree = "<group>"; };
 		F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForTap.swift; sourceTree = "<group>"; };
 		F05CB3841F8EAB40008626F2 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
+		F0CE5A281F958142000E02E2 /* Bricks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bricks-Bridging-Header.h"; sourceTree = "<group>"; };
+		F0CE5A291F958142000E02E2 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = "../../../Downloads/fmdb-master/src/fmdb/FMDatabase.h"; sourceTree = "<group>"; };
+		F0CE5A2A1F958142000E02E2 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = "../../../Downloads/fmdb-master/src/fmdb/FMDatabase.m"; sourceTree = "<group>"; };
+		F0CE5A2B1F958142000E02E2 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = "../../../Downloads/fmdb-master/src/fmdb/FMDatabaseAdditions.h"; sourceTree = "<group>"; };
+		F0CE5A2C1F958142000E02E2 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = "../../../Downloads/fmdb-master/src/fmdb/FMDatabaseAdditions.m"; sourceTree = "<group>"; };
+		F0CE5A2D1F958142000E02E2 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = "../../../Downloads/fmdb-master/src/fmdb/FMDatabasePool.h"; sourceTree = "<group>"; };
+		F0CE5A2E1F958142000E02E2 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = "../../../Downloads/fmdb-master/src/fmdb/FMDatabasePool.m"; sourceTree = "<group>"; };
+		F0CE5A2F1F958142000E02E2 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = "../../../Downloads/fmdb-master/src/fmdb/FMDatabaseQueue.h"; sourceTree = "<group>"; };
+		F0CE5A301F958142000E02E2 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = "../../../Downloads/fmdb-master/src/fmdb/FMDatabaseQueue.m"; sourceTree = "<group>"; };
+		F0CE5A311F958142000E02E2 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = "../../../Downloads/fmdb-master/src/fmdb/FMDB.h"; sourceTree = "<group>"; };
+		F0CE5A321F958142000E02E2 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = "../../../Downloads/fmdb-master/src/fmdb/FMResultSet.h"; sourceTree = "<group>"; };
+		F0CE5A331F958142000E02E2 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = "../../../Downloads/fmdb-master/src/fmdb/FMResultSet.m"; sourceTree = "<group>"; };
+		F0CE5A3A1F9581C3000E02E2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F0CE5A3E1F96577D000E02E2 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0CE5A3B1F9581C3000E02E2 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +90,7 @@
 			children = (
 				F05CB34B1F8EA94B008626F2 /* Bricks */,
 				F05CB34A1F8EA94B008626F2 /* Products */,
+				F0CE5A391F9581C3000E02E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,10 +113,23 @@
 				F05CB36E1F8EAAE8008626F2 /* GameViewController.swift */,
 				F05CB3771F8EAB09008626F2 /* Sounds */,
 				F05CB3751F8EAAFE008626F2 /* Playing.swift */,
-				F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */,
 				F05CB3841F8EAB40008626F2 /* GameOver.swift */,
-				F05CB3681F8EAAA7008626F2 /* LaunchScreen.storyboard */,
+				F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */,
+				F0CE5A281F958142000E02E2 /* Bricks-Bridging-Header.h */,
 				F05CB3691F8EAAA7008626F2 /* Main.storyboard */,
+				F05CB3681F8EAAA7008626F2 /* LaunchScreen.storyboard */,
+				F0CE5A3E1F96577D000E02E2 /* DBManager.swift */,
+				F0CE5A291F958142000E02E2 /* FMDatabase.h */,
+				F0CE5A2A1F958142000E02E2 /* FMDatabase.m */,
+				F0CE5A2B1F958142000E02E2 /* FMDatabaseAdditions.h */,
+				F0CE5A2C1F958142000E02E2 /* FMDatabaseAdditions.m */,
+				F0CE5A2D1F958142000E02E2 /* FMDatabasePool.h */,
+				F0CE5A2E1F958142000E02E2 /* FMDatabasePool.m */,
+				F0CE5A2F1F958142000E02E2 /* FMDatabaseQueue.h */,
+				F0CE5A301F958142000E02E2 /* FMDatabaseQueue.m */,
+				F0CE5A311F958142000E02E2 /* FMDB.h */,
+				F0CE5A321F958142000E02E2 /* FMResultSet.h */,
+				F0CE5A331F958142000E02E2 /* FMResultSet.m */,
 				F05CB35E1F8EA94B008626F2 /* Info.plist */,
 			);
 			path = Bricks;
@@ -120,6 +156,14 @@
 				F05CB37C1F8EAB09008626F2 /* pongblip.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		F0CE5A391F9581C3000E02E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0CE5A3A1F9581C3000E02E2 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +198,7 @@
 				TargetAttributes = {
 					F05CB3481F8EA94B008626F2 = {
 						CreatedOnToolsVersion = 8.3.1;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -207,9 +252,15 @@
 				F05CB3831F8EAB13008626F2 /* WaitingForTap.swift in Sources */,
 				F05CB3761F8EAAFE008626F2 /* Playing.swift in Sources */,
 				F05CB36D1F8EAAD7008626F2 /* GameScene.swift in Sources */,
+				F0CE5A341F958142000E02E2 /* FMDatabase.m in Sources */,
+				F0CE5A361F958142000E02E2 /* FMDatabasePool.m in Sources */,
+				F0CE5A371F958142000E02E2 /* FMDatabaseQueue.m in Sources */,
 				F05CB3851F8EAB40008626F2 /* GameOver.swift in Sources */,
+				F0CE5A3F1F96577D000E02E2 /* DBManager.swift in Sources */,
 				F05CB36F1F8EAAE8008626F2 /* GameViewController.swift in Sources */,
+				F0CE5A381F958142000E02E2 /* FMResultSet.m in Sources */,
 				F05CB34D1F8EA94B008626F2 /* AppDelegate.swift in Sources */,
+				F0CE5A351F958142000E02E2 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,10 +364,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Bricks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Dayne-Beck.Bricks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bricks/Bricks-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -325,10 +379,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Bricks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Dayne-Beck.Bricks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bricks/Bricks-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
