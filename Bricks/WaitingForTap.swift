@@ -11,11 +11,11 @@ class WaitingForTap: GKState {
   }
   
   override func didEnter(from previousState: GKState?) {
-    if previousState is MainMenu {
+  // if previousState is MainMenu {
     let scale = SKAction.scale(to: 1.0, duration: 0.25)
     scene.childNode(withName: GameMessageName)!.run(scale)
     }
-}
+//}
   
   override func willExit(to nextState: GKState) {
     if nextState is Playing {

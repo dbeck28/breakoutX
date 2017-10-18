@@ -31,7 +31,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var totalBlocksBroken = 0.0
     
     lazy var gameState: GKStateMachine = GKStateMachine(states: [
-        MainMenu(scene: self),
         WaitingForTap(scene: self),
         Playing(scene: self),
         GameOver(scene: self)])
@@ -265,7 +264,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     addChild(gameMessage)
 //    gameState.enter(WaitingForTap.self)
     
-    gameState.enter(MainMenu.self)
+    gameState.enter(WaitingForTap.self)
+    
     }
 
     
