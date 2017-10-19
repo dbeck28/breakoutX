@@ -25,8 +25,8 @@
 		F05CB3831F8EAB13008626F2 /* WaitingForTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */; };
 		F05CB3851F8EAB40008626F2 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB3841F8EAB40008626F2 /* GameOver.swift */; };
 		F05CB3861F8EDCC6008626F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05CB3661F8EAA0B008626F2 /* Assets.xcassets */; };
-		F07CE8F81F97F22500AB5AB0 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F07CE8F71F97F22400AB5AB0 /* MainMenuScene.sks */; };
 		F07CE8FA1F97FB1E00AB5AB0 /* MainMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07CE8F91F97FB1E00AB5AB0 /* MainMenuState.swift */; };
+		F07CE8FC1F984C7600AB5AB0 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F07CE8FB1F984C7600AB5AB0 /* MainMenuScene.sks */; };
 		F099020E1F9672F0004B09A3 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F099020D1F9672F0004B09A3 /* MainMenu.swift */; };
 		F099021C1F967AA2004B09A3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F099021B1F967AA2004B09A3 /* GameScene.sks */; };
 		F0CE5A341F958142000E02E2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CE5A2A1F958142000E02E2 /* FMDatabase.m */; };
@@ -59,8 +59,8 @@
 		F05CB37C1F8EAB09008626F2 /* pongblip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pongblip.wav; sourceTree = "<group>"; };
 		F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForTap.swift; sourceTree = "<group>"; };
 		F05CB3841F8EAB40008626F2 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
-		F07CE8F71F97F22400AB5AB0 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
 		F07CE8F91F97FB1E00AB5AB0 /* MainMenuState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuState.swift; sourceTree = "<group>"; };
+		F07CE8FB1F984C7600AB5AB0 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MainMenuScene.sks; path = ../MainMenuScene.sks; sourceTree = "<group>"; };
 		F099020D1F9672F0004B09A3 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenu.swift; path = ../MainMenu.swift; sourceTree = "<group>"; };
 		F099021B1F967AA2004B09A3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		F0CE5A281F958142000E02E2 /* Bricks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bricks-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				F05CB3771F8EAB09008626F2 /* Sounds */,
 				F099020D1F9672F0004B09A3 /* MainMenu.swift */,
 				F07CE8F91F97FB1E00AB5AB0 /* MainMenuState.swift */,
-				F07CE8F71F97F22400AB5AB0 /* MainMenuScene.sks */,
+				F07CE8FB1F984C7600AB5AB0 /* MainMenuScene.sks */,
 				F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */,
 				F05CB3751F8EAAFE008626F2 /* Playing.swift */,
 				F05CB3841F8EAB40008626F2 /* GameOver.swift */,
@@ -243,7 +243,7 @@
 				F05CB3741F8EAAF2008626F2 /* BrokenPlatform.sks in Resources */,
 				F05CB3731F8EAAF2008626F2 /* BallTrail.sks in Resources */,
 				F05CB37E1F8EAB09008626F2 /* game-over.wav in Resources */,
-				F07CE8F81F97F22500AB5AB0 /* MainMenuScene.sks in Resources */,
+				F07CE8FC1F984C7600AB5AB0 /* MainMenuScene.sks in Resources */,
 				F05CB3801F8EAB09008626F2 /* paddleBlip.wav in Resources */,
 				F03516131F9171F300509D68 /* coins.wav in Resources */,
 				F05CB37D1F8EAB09008626F2 /* BambooBreak.wav in Resources */,

@@ -27,7 +27,7 @@ class MainMenuScene: SKScene {
         if let location = touches.first?.location(in: self) {
             let touchedNode = atPoint(location)
             
-            if touchedNode.name == "background" {
+            if touchedNode.name == "FreePlayBtn" { //when node clicked, perform duty
                 let transition = SKTransition.reveal(with: .down, duration: 1.0)
                 
                 let nextScene = GameScene(fileNamed: "GameScene")
@@ -45,8 +45,6 @@ class MainMenuScene: SKScene {
                     
                     skView.presentScene(scene)
                 }
-
-                
                 scene?.view?.presentScene(nextScene!, transition: transition)
             }
         }
