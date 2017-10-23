@@ -6,7 +6,8 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let scene = MainMenuScene(fileNamed:"MainMenuScene") {
+        
+        if let scene = Registration(fileNamed:"Registration") {
             let skView = self.view as! SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
@@ -56,5 +57,25 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden : Bool {
         return true
+    }
+    
+    func showAlert(title:String,message:String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+            print("handle Ok action...")
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alertController, animated: true)
+    }
+    
+    func handleLoginBtn(name:String, email:String, username:String, password:String, confirmPassword: String) {
+        print("handleLoginBtn")
+        print("username is: \(username) and password: \(password)")
+    }
+    func handleFacebookBtn() {
+        print("handleFacebookBtn")
+    }
+    func handleTwitterBtn() {
+        print("handleTwitterBtn")
     }
 }
