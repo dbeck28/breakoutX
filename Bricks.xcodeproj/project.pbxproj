@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F001C71E1F9D700D00325784 /* RegistrationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001C71D1F9D700D00325784 /* RegistrationState.swift */; };
 		F001C7221F9D70CD00325784 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001C7211F9D70CD00325784 /* Registration.swift */; };
-		F001C72A1F9D74A100325784 /* Registration.sks in Resources */ = {isa = PBXBuildFile; fileRef = F001C7291F9D74A100325784 /* Registration.sks */; };
+		F001C72C1F9E470C00325784 /* Registration.sks in Resources */ = {isa = PBXBuildFile; fileRef = F001C72B1F9E470C00325784 /* Registration.sks */; };
 		F03516131F9171F300509D68 /* coins.wav in Resources */ = {isa = PBXBuildFile; fileRef = F03516121F9171F300509D68 /* coins.wav */; };
 		F03516151F917C1A00509D68 /* burp.wav in Resources */ = {isa = PBXBuildFile; fileRef = F03516141F917C1A00509D68 /* burp.wav */; };
 		F05CB34D1F8EA94B008626F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05CB34C1F8EA94B008626F2 /* AppDelegate.swift */; };
@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		F001C71D1F9D700D00325784 /* RegistrationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationState.swift; sourceTree = "<group>"; };
 		F001C7211F9D70CD00325784 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
-		F001C7291F9D74A100325784 /* Registration.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Registration.sks; sourceTree = "<group>"; };
+		F001C72B1F9E470C00325784 /* Registration.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Registration.sks; sourceTree = "<group>"; };
 		F03516121F9171F300509D68 /* coins.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coins.wav; sourceTree = "<group>"; };
 		F03516141F917C1A00509D68 /* burp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burp.wav; sourceTree = "<group>"; };
 		F05CB3491F8EA94B008626F2 /* Bricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,19 +97,19 @@
 		F05CB34B1F8EA94B008626F2 /* Bricks */ = {
 			isa = PBXGroup;
 			children = (
-				F05CB34C1F8EA94B008626F2 /* AppDelegate.swift */,
 				F05CB3661F8EAA0B008626F2 /* Assets.xcassets */,
+				F05CB3701F8EAAF2008626F2 /* Particles */,
+				F05CB3771F8EAB09008626F2 /* Sounds */,
+				F05CB36E1F8EAAE8008626F2 /* GameViewController.swift */,
+				F05CB34C1F8EA94B008626F2 /* AppDelegate.swift */,
 				F099021B1F967AA2004B09A3 /* GameScene.sks */,
 				F05CB36C1F8EAAD7008626F2 /* GameScene.swift */,
 				F07CE8FB1F984C7600AB5AB0 /* MainMenuScene.sks */,
 				F099020D1F9672F0004B09A3 /* MainMenu.swift */,
-				F05CB3701F8EAAF2008626F2 /* Particles */,
-				F05CB36E1F8EAAE8008626F2 /* GameViewController.swift */,
-				F05CB3771F8EAB09008626F2 /* Sounds */,
+				F001C72B1F9E470C00325784 /* Registration.sks */,
+				F001C7211F9D70CD00325784 /* Registration.swift */,
 				F07CE8F91F97FB1E00AB5AB0 /* MainMenuState.swift */,
 				F001C71D1F9D700D00325784 /* RegistrationState.swift */,
-				F001C7291F9D74A100325784 /* Registration.sks */,
-				F001C7211F9D70CD00325784 /* Registration.swift */,
 				F05CB3821F8EAB13008626F2 /* WaitingForTap.swift */,
 				F05CB3751F8EAAFE008626F2 /* Playing.swift */,
 				F05CB3841F8EAB40008626F2 /* GameOver.swift */,
@@ -221,7 +221,7 @@
 				F05CB37E1F8EAB09008626F2 /* game-over.wav in Resources */,
 				F07CE90E1F9921EE00AB5AB0 /* CoinFall.sks in Resources */,
 				F07CE8FC1F984C7600AB5AB0 /* MainMenuScene.sks in Resources */,
-				F001C72A1F9D74A100325784 /* Registration.sks in Resources */,
+				F001C72C1F9E470C00325784 /* Registration.sks in Resources */,
 				F05CB3801F8EAB09008626F2 /* paddleBlip.wav in Resources */,
 				F03516131F9171F300509D68 /* coins.wav in Resources */,
 				F05CB37D1F8EAB09008626F2 /* BambooBreak.wav in Resources */,
