@@ -77,6 +77,7 @@ class Registration: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view?.endEditing(true) //to make that keyboard disappear when u tap outside of textfield
         super.touchesBegan(touches, with: event)
         
         if let location = touches.first?.location(in: self) {
