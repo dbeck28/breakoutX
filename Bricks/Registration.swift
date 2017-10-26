@@ -70,34 +70,24 @@ class Registration: SKScene {
         
         view.addSubview(passwordConfirmTextField)
         
-//        let myBlue = SKColor(colorLiteralRed: 59/255, green: 89/255, blue: 153/255, alpha: 1)
-//        signUpBtn = SKShapeNode(frame: CGRect.init(x: 70, y: view.frame.size.height - 400, width: view.frame.size.width/1.5, height: 30))
-//        addChild(signUpBtn)
-//        signUpButton.zPosition = 1
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view?.endEditing(true) //to make that keyboard disappear when u tap outside of textfield
         super.touchesBegan(touches, with: event)
+        var password_confirmed = true
         
         if let location = touches.first?.location(in: self) {
             let touchedNode = atPoint(location)
             
             if touchedNode.name == "SubmitBtn" {
-                //when node clicked, perform duty
                 
-//                var name = nameTextField.text
-//                let username = usernameTextField.text
-//                let email = emailTextField.text
-//                let password = passwordTextField.text
-                // let passwordConfirmText = passwordConfirmTextField.text
-                // save user data in four parts to be sent to api
-                
+                if passwordTextField.text != passwordConfirmTextField.text {
+                    password_confirmed = false
+                } else {
                 let headers = [
                     "Authorization":"Token token=629fc8b7dfcf38cb7c1348cf8159e406",
                     ]
-                
                 let user_params: [String : AnyObject] = [
                     "name" : nameTextField.text as AnyObject,
                     "username" : usernameTextField.text as AnyObject,
@@ -106,22 +96,20 @@ class Registration: SKScene {
                     "password_confirmation" : passwordConfirmTextField.text as AnyObject
                 ]
                 
+                // The request to post a new member to the database
                 Alamofire.request("http://localhost:3000/users", method: .post, parameters: user_params, encoding: JSONEncoding.default, headers: headers)
-                    .validate(statusCode: 200..<600)
+                    .validate(statusCode: 200..<600) // checks to see if it's valid JSON
                     .responseJSON() { response in
                         if (response.result.error == nil) {
                             debugPrint(user_params)
                             debugPrint("HTTP Response Body: \(response.data)")
-                            if let values = response.result.value {
-                                // Use values to initialize DogPark instances
-                            }
-                        }
-                        else {
+                        } else {
                             debugPrint("HTTP Request failed: \(response.result.error)")
                         }
-                        // *** End of If-Else statement *** 
+                    }
                 }
                 
+                if password_confirmed == true {
                 let transition = SKTransition.reveal(with: .down, duration: 1.0)
                 // Add logic to convert to JSON and Post to Rails API
                 nameTextField.removeFromSuperview()
@@ -129,12 +117,6 @@ class Registration: SKScene {
                 usernameTextField.removeFromSuperview()
                 passwordTextField.removeFromSuperview()
                 passwordConfirmTextField.removeFromSuperview()
-                
-// to test text capture
-//                let TestLabelName = "testlabel"
-//                let TestLabelCategory : UInt32 = 0x1 << 5
-//                let testlabel = childNode(withName: TestLabelName) as! SKLabelNode
-//                testlabel.text = xtext
                 
                 let nextScene = MainMenuScene(fileNamed: "MainMenuScene")
                 if let scene = MainMenuScene(fileNamed:"MainMenuScene") {
@@ -150,8 +132,9 @@ class Registration: SKScene {
                     scene.scaleMode = .aspectFit
                     
                     skView.presentScene(scene)
-                }
+                    }
                 scene?.view?.presentScene(nextScene!, transition: transition)
+                }
             }
         }
     }
