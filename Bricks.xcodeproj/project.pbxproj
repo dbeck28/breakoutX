@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B58E599A76F09D425D579BFA /* Pods_Bricks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B999E3EB4C4C8442BE18F7 /* Pods_Bricks.framework */; };
 		F001C71E1F9D700D00325784 /* RegistrationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001C71D1F9D700D00325784 /* RegistrationState.swift */; };
-		F001C7221F9D70CD00325784 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001C7211F9D70CD00325784 /* Registration.swift */; };
 		F001C72C1F9E470C00325784 /* Registration.sks in Resources */ = {isa = PBXBuildFile; fileRef = F001C72B1F9E470C00325784 /* Registration.sks */; };
 		F03516131F9171F300509D68 /* coins.wav in Resources */ = {isa = PBXBuildFile; fileRef = F03516121F9171F300509D68 /* coins.wav */; };
 		F03516151F917C1A00509D68 /* burp.wav in Resources */ = {isa = PBXBuildFile; fileRef = F03516141F917C1A00509D68 /* burp.wav */; };
@@ -31,14 +31,21 @@
 		F07CE8FA1F97FB1E00AB5AB0 /* MainMenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07CE8F91F97FB1E00AB5AB0 /* MainMenuState.swift */; };
 		F07CE8FC1F984C7600AB5AB0 /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F07CE8FB1F984C7600AB5AB0 /* MainMenuScene.sks */; };
 		F07CE90E1F9921EE00AB5AB0 /* CoinFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = F07CE90D1F9921EE00AB5AB0 /* CoinFall.sks */; };
+		F0848ED31FA1570800BEC2D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0848ED21FA1570800BEC2D9 /* User.swift */; };
+		F0848ED91FA181F500BEC2D9 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001C7211F9D70CD00325784 /* Registration.swift */; };
+		F0848EDB1FA1837600BEC2D9 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0848EDA1FA1837600BEC2D9 /* SwiftyJSON.framework */; };
 		F099020E1F9672F0004B09A3 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F099020D1F9672F0004B09A3 /* MainMenu.swift */; };
 		F099021C1F967AA2004B09A3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F099021B1F967AA2004B09A3 /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0952D1DC083F149179354E52 /* Pods-Bricks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bricks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bricks/Pods-Bricks.release.xcconfig"; sourceTree = "<group>"; };
+		0EC1B0A914DF0F7FB7CA0C04 /* Pods-Bricks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bricks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bricks/Pods-Bricks.debug.xcconfig"; sourceTree = "<group>"; };
+		16B999E3EB4C4C8442BE18F7 /* Pods_Bricks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bricks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F001C71D1F9D700D00325784 /* RegistrationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationState.swift; sourceTree = "<group>"; };
 		F001C7211F9D70CD00325784 /* Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		F001C72B1F9E470C00325784 /* Registration.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Registration.sks; sourceTree = "<group>"; };
+		F001C72D1F9EFDA100325784 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/Bricks-ehuawhpwjjuvpzdlptpttpcenrvi/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		F03516121F9171F300509D68 /* coins.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coins.wav; sourceTree = "<group>"; };
 		F03516141F917C1A00509D68 /* burp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burp.wav; sourceTree = "<group>"; };
 		F05CB3491F8EA94B008626F2 /* Bricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +69,8 @@
 		F07CE8F91F97FB1E00AB5AB0 /* MainMenuState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuState.swift; sourceTree = "<group>"; };
 		F07CE8FB1F984C7600AB5AB0 /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MainMenuScene.sks; path = ../MainMenuScene.sks; sourceTree = "<group>"; };
 		F07CE90D1F9921EE00AB5AB0 /* CoinFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CoinFall.sks; sourceTree = "<group>"; };
+		F0848ED21FA1570800BEC2D9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F0848EDA1FA1837600BEC2D9 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/Bricks-ehuawhpwjjuvpzdlptpttpcenrvi/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		F099020D1F9672F0004B09A3 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenu.swift; path = ../MainMenu.swift; sourceTree = "<group>"; };
 		F099021B1F967AA2004B09A3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,18 +80,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0848EDB1FA1837600BEC2D9 /* SwiftyJSON.framework in Frameworks */,
+				B58E599A76F09D425D579BFA /* Pods_Bricks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3184C172258AA3BDAE7433AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EC1B0A914DF0F7FB7CA0C04 /* Pods-Bricks.debug.xcconfig */,
+				0952D1DC083F149179354E52 /* Pods-Bricks.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F05CB3401F8EA94B008626F2 = {
 			isa = PBXGroup;
 			children = (
 				F05CB34B1F8EA94B008626F2 /* Bricks */,
 				F05CB34A1F8EA94B008626F2 /* Products */,
 				F0CE5A391F9581C3000E02E2 /* Frameworks */,
+				3184C172258AA3BDAE7433AC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +137,7 @@
 				F05CB3691F8EAAA7008626F2 /* Main.storyboard */,
 				F05CB3681F8EAAA7008626F2 /* LaunchScreen.storyboard */,
 				F05CB35E1F8EA94B008626F2 /* Info.plist */,
+				F0848ED21FA1570800BEC2D9 /* User.swift */,
 			);
 			path = Bricks;
 			sourceTree = "<group>";
@@ -147,6 +169,9 @@
 		F0CE5A391F9581C3000E02E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0848EDA1FA1837600BEC2D9 /* SwiftyJSON.framework */,
+				F001C72D1F9EFDA100325784 /* Alamofire.framework */,
+				16B999E3EB4C4C8442BE18F7 /* Pods_Bricks.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,9 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F05CB3611F8EA94B008626F2 /* Build configuration list for PBXNativeTarget "Bricks" */;
 			buildPhases = (
+				58AB03566018DF5038915F80 /* [CP] Check Pods Manifest.lock */,
 				F05CB3451F8EA94B008626F2 /* Sources */,
 				F05CB3461F8EA94B008626F2 /* Frameworks */,
 				F05CB3471F8EA94B008626F2 /* Resources */,
+				B20B3DA4102D02850FB86D62 /* [CP] Embed Pods Frameworks */,
+				DA0F94CC6E21029DB1160F82 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +260,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		58AB03566018DF5038915F80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bricks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B20B3DA4102D02850FB86D62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bricks/Pods-Bricks-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bricks/Pods-Bricks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA0F94CC6E21029DB1160F82 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bricks/Pods-Bricks-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F05CB3451F8EA94B008626F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -240,13 +324,14 @@
 				F099020E1F9672F0004B09A3 /* MainMenu.swift in Sources */,
 				F05CB3831F8EAB13008626F2 /* WaitingForTap.swift in Sources */,
 				F05CB3761F8EAAFE008626F2 /* Playing.swift in Sources */,
+				F0848ED91FA181F500BEC2D9 /* Registration.swift in Sources */,
 				F05CB36D1F8EAAD7008626F2 /* GameScene.swift in Sources */,
 				F07CE8FA1F97FB1E00AB5AB0 /* MainMenuState.swift in Sources */,
 				F05CB3851F8EAB40008626F2 /* GameOver.swift in Sources */,
 				F001C71E1F9D700D00325784 /* RegistrationState.swift in Sources */,
 				F05CB36F1F8EAAE8008626F2 /* GameViewController.swift in Sources */,
-				F001C7221F9D70CD00325784 /* Registration.swift in Sources */,
 				F05CB34D1F8EA94B008626F2 /* AppDelegate.swift in Sources */,
+				F0848ED31FA1570800BEC2D9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +433,7 @@
 		};
 		F05CB3621F8EA94B008626F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EC1B0A914DF0F7FB7CA0C04 /* Pods-Bricks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -363,6 +449,7 @@
 		};
 		F05CB3631F8EA94B008626F2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0952D1DC083F149179354E52 /* Pods-Bricks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

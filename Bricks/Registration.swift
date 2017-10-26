@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import Alamofire
 
 class Registration: SKScene {
     
@@ -60,12 +61,12 @@ class Registration: SKScene {
         view.addSubview(usernameTextField)
         
         passwordTextField = UITextField(frame: CGRect.init(x: 70, y: view.frame.size.height - 450, width: view.frame.size.width/1.5, height: 30))
-        customize(textField: passwordTextField, placeholder: "Enter your password")
+        customize(textField: passwordTextField, placeholder: "Enter your password", isSecureTextEntry: true)
         
         view.addSubview(passwordTextField)
         
         passwordConfirmTextField = UITextField(frame: CGRect.init(x: 70, y: view.frame.size.height - 400, width: view.frame.size.width/1.5, height: 30))
-        customize(textField: passwordConfirmTextField, placeholder: "Confirm your password")
+        customize(textField: passwordConfirmTextField, placeholder: "Confirm your password", isSecureTextEntry: true)
         
         view.addSubview(passwordConfirmTextField)
         
@@ -83,7 +84,44 @@ class Registration: SKScene {
         if let location = touches.first?.location(in: self) {
             let touchedNode = atPoint(location)
             
-            if touchedNode.name == "SubmitBtn" { //when node clicked, perform duty
+            if touchedNode.name == "SubmitBtn" {
+                //when node clicked, perform duty
+                
+//                var name = nameTextField.text
+//                let username = usernameTextField.text
+//                let email = emailTextField.text
+//                let password = passwordTextField.text
+                // let passwordConfirmText = passwordConfirmTextField.text
+                // save user data in four parts to be sent to api
+                
+                let headers = [
+                    "Authorization":"Token token=629fc8b7dfcf38cb7c1348cf8159e406",
+                    ]
+                
+                let user_params: [String : AnyObject] = [
+                    "name" : nameTextField.text as AnyObject,
+                    "username" : usernameTextField.text as AnyObject,
+                    "email" : emailTextField.text as AnyObject,
+                    "password_digest" : passwordTextField.text as AnyObject,
+                    "password_confirmation" : passwordConfirmTextField.text as AnyObject
+                ]
+                
+                Alamofire.request("http://localhost:3000/users", method: .post, parameters: user_params, encoding: JSONEncoding.default, headers: headers)
+                    .validate(statusCode: 200..<600)
+                    .responseJSON() { response in
+                        if (response.result.error == nil) {
+                            debugPrint(user_params)
+                            debugPrint("HTTP Response Body: \(response.data)")
+                            if let values = response.result.value {
+                                // Use values to initialize DogPark instances
+                            }
+                        }
+                        else {
+                            debugPrint("HTTP Request failed: \(response.result.error)")
+                        }
+                        // *** End of If-Else statement *** 
+                }
+                
                 let transition = SKTransition.reveal(with: .down, duration: 1.0)
                 // Add logic to convert to JSON and Post to Rails API
                 nameTextField.removeFromSuperview()
@@ -91,6 +129,12 @@ class Registration: SKScene {
                 usernameTextField.removeFromSuperview()
                 passwordTextField.removeFromSuperview()
                 passwordConfirmTextField.removeFromSuperview()
+                
+// to test text capture
+//                let TestLabelName = "testlabel"
+//                let TestLabelCategory : UInt32 = 0x1 << 5
+//                let testlabel = childNode(withName: TestLabelName) as! SKLabelNode
+//                testlabel.text = xtext
                 
                 let nextScene = MainMenuScene(fileNamed: "MainMenuScene")
                 if let scene = MainMenuScene(fileNamed:"MainMenuScene") {
