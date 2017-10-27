@@ -23,6 +23,31 @@ class Registration: SKScene {
     var passwordConfirmTextField = UITextField()
     var signUpBtn:SKShapeNode!
     
+    func go_to_main_menu() {
+        let transition = SKTransition.reveal(with: .down, duration: 1.0)
+        // Add logic to convert to JSON and Post to Rails API
+        nameTextField.removeFromSuperview()
+        emailTextField.removeFromSuperview()
+        usernameTextField.removeFromSuperview()
+        passwordTextField.removeFromSuperview()
+        passwordConfirmTextField.removeFromSuperview()
+        
+        let nextScene = MainMenuScene(fileNamed: "MainMenuScene")
+        if let scene = MainMenuScene(fileNamed:"MainMenuScene") {
+            // Configure the view.
+            let skView = self.view! //as! SKView
+            skView.showsFPS = true
+            skView.showsNodeCount = true
+            /* Sprite Kit applies additional optimizations to improve rendering performance */
+            skView.ignoresSiblingOrder = true
+            /* Set the scale mode to scale to fit the window */
+            scene.scaleMode = .aspectFit
+            skView.presentScene(scene)
+        }
+        scene?.view?.presentScene(nextScene!, transition: transition)
+    }
+
+    
     func customize(textField:UITextField, placeholder:String , isSecureTextEntry:Bool = false) {
         let paddingView = UIView(frame:CGRect(x:0,y: 0,width: 10,height: 30))
         textField.leftView = paddingView
@@ -108,33 +133,17 @@ class Registration: SKScene {
                         }
                     }
                 }
-                
                 if password_confirmed == true {
-                let transition = SKTransition.reveal(with: .down, duration: 1.0)
-                // Add logic to convert to JSON and Post to Rails API
-                nameTextField.removeFromSuperview()
-                emailTextField.removeFromSuperview()
-                usernameTextField.removeFromSuperview()
-                passwordTextField.removeFromSuperview()
-                passwordConfirmTextField.removeFromSuperview()
-                
-                let nextScene = MainMenuScene(fileNamed: "MainMenuScene")
-                if let scene = MainMenuScene(fileNamed:"MainMenuScene") {
-                    // Configure the view.
-                    let skView = self.view! //as! SKView
-                    skView.showsFPS = true
-                    skView.showsNodeCount = true
-                    
-                    /* Sprite Kit applies additional optimizations to improve rendering performance */
-                    skView.ignoresSiblingOrder = true
-                    
-                    /* Set the scale mode to scale to fit the window */
-                    scene.scaleMode = .aspectFit
-                    
-                    skView.presentScene(scene)
-                    }
-                scene?.view?.presentScene(nextScene!, transition: transition)
+                    go_to_main_menu() //Add error message
                 }
+            }
+            
+            if touchedNode.name == "SkipRegistrationBtn" {
+                go_to_main_menu()
+            }
+            
+            if touchedNode.name == "LoginPageBtn" {
+                //set up login page
             }
         }
     }

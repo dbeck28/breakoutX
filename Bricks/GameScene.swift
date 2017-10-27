@@ -58,6 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gold.physicsBody = SKPhysicsBody(rectangleOf: gold.frame.size)
             gold.physicsBody!.density = 1000
             gold.physicsBody!.isDynamic = true
+            gold.physicsBody!.allowsRotation = false
             gold.name = GoldName
             gold.physicsBody!.categoryBitMask = GoldCategory
             gold.zPosition = 2
@@ -74,6 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             heart.physicsBody = SKPhysicsBody(rectangleOf: heart.frame.size)
             heart.physicsBody!.density = 1000
             heart.physicsBody!.isDynamic = true
+            heart.physicsBody!.allowsRotation = false
             heart.name = HeartName
             heart.physicsBody!.categoryBitMask = HeartCategory
             heart.zPosition = 2
