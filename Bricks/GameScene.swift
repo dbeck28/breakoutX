@@ -11,6 +11,7 @@ let LifeLabelName = "lifelabel"
 let GoldName = "gold"
 let HeartName = "heart"
 
+
 let BallCategory   : UInt32 = 0x1 << 0
 let BottomCategory : UInt32 = 0x1 << 1
 let BlockCategory  : UInt32 = 0x1 << 2
@@ -108,6 +109,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         updateScore()
     }
     
+    func breakGold(node: SKNode) {
+        let particles = SKEmitterNode(fileNamed: "CoinFall")!
+        particles.position = node.position
+        particles.zPosition = 3
+        addChild(particles)
+        particles.run(SKAction.sequence([SKAction.wait(forDuration: 1.0),
+                                         SKAction.removeFromParent()]))
+        node.removeFromParent()
+    }
+    
     func catchHeart(node: SKNode) {
         let lifelabel = childNode(withName: LifeLabelName) as! SKLabelNode
         run(burpSound)
@@ -161,7 +172,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if firstBody.categoryBitMask == PaddleCategory && secondBody.categoryBitMask == HeartCategory {
             catchHeart(node: secondBody.node!)
         }
-        
+        // Ball to Heart
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == HeartCategory {
+            catchHeart(node: secondBody.node!)
+        }
+        // Ball to Gold
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == GoldCategory {
+            breakGold(node: secondBody.node!)
+            
+        }
+        // Ball to walls and ceiling
         if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BorderCategory {
             run(blipSound)
         }
@@ -234,7 +254,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     ball.physicsBody!.categoryBitMask = BallCategory
     paddle.physicsBody!.categoryBitMask = PaddleCategory
     borderBody.categoryBitMask = BorderCategory
-    ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory | GoldCategory | BorderCategory
+    ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory | GoldCategory | BorderCategory | HeartCategory
     paddle.physicsBody!.contactTestBitMask = GoldCategory | HeartCategory
     bottom.physicsBody!.contactTestBitMask = BallCategory
   
@@ -242,6 +262,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     buildBlocks()
     
     // ball sparks
+    
     let trailNode = SKNode()
     trailNode.zPosition = 1
     addChild(trailNode)
@@ -260,8 +281,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     gameMessage.zPosition = 4
     gameMessage.setScale(0.0)
     addChild(gameMessage)
+//    gameState.enter(WaitingForTap.self)
+    
     gameState.enter(WaitingForTap.self)
-  }
+    
+    }
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
