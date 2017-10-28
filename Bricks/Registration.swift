@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 import Alamofire
+import SwiftyJSON
 
 let LoginPageBtnName = "LoginPageBtn"
 let SubmitBtnName = "SubmitBtn"
@@ -19,6 +20,8 @@ let LoginPageBtnCategory   : UInt32 = 0x1 << 0
 let SubmitBtnCategory : UInt32 = 0x1 << 1
 let SkipRegistrationBtnCategory  : UInt32 = 0x1 << 2
 let LoginSubmitBtnCategory : UInt32 = 0x1 << 3
+
+
 
 class Registration: SKScene {
     lazy var gameState: GKStateMachine = GKStateMachine(states: [
@@ -118,11 +121,12 @@ class Registration: SKScene {
             
             if touchedNode.name == "SubmitBtn" {
                 
+                
                 if passwordTextField.text != passwordConfirmTextField.text {
                     password_confirmed = false
                 } else {
                 let headers = [
-                    "Authorization":"Token token=629fc8b7dfcf38cb7c1348cf8159e406",
+                    "Authorization":"Token token=4212c4baf755266c1657743cecd71eed",
                     ]
                 let user_params: [String : AnyObject] = [
                     "name" : nameTextField.text as AnyObject,
@@ -137,14 +141,16 @@ class Registration: SKScene {
                     .validate(statusCode: 200..<600) // checks to see if it's valid JSON
                     .responseJSON() { response in
                         if (response.result.error == nil) {
-                            debugPrint(user_params)
+                            debugPrint(response)
+                            let current_user = JSON(response)
+                            print(current_user)
                             debugPrint("HTTP Response Body: \(response.data)")
                         } else {
                             debugPrint("HTTP Request failed: \(response.result.error)")
                         }
                     }
                 }
-                if password_confirmed == true {
+                if (password_confirmed == true) && (passwordTextField.text != "") {
                     go_to_main_menu() //Add error message
                 }
             }
@@ -167,23 +173,24 @@ class Registration: SKScene {
             
             if touchedNode.name == "LoginSubmitBtn" {
                 let headers = [
-                    "Authorization":"Token token=629fc8b7dfcf38cb7c1348cf8159e406",
+                    "Authorization":"Token token=4212c4baf755266c1657743cecd71eed",
                     ]
                 
                 let user_params: [String : AnyObject] = [
                     "email" : emailTextField.text as AnyObject,
                     "password_digest" : passwordTextField.text as AnyObject,
-                    "id" : "8" as AnyObject
                 ]
                 
-                let id = "8"
+                let id = "1"
                 
                 Alamofire.request("http://localhost:3000/users/\(id))", parameters: user_params, headers: headers)
                     .validate(statusCode: 200..<600) // checks to see if it's valid JSON
                     .responseJSON() { response in
                         if (response.result.error == nil) {
                             debugPrint(response)
-                            debugPrint(user_params)
+//                            let userData = JSON(data: response.data!)
+//                            let username = userData["username"].string
+//                            debugPrint(userData)
                             debugPrint("HTTP Response Body: \(response.data)")
                         } else {
                             debugPrint("HTTP Request failed: \(response.result.error)")
