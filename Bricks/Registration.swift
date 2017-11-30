@@ -9,9 +9,21 @@
 import SpriteKit
 import GameplayKit
 import Alamofire
+import SwiftyJSON
+
+let LoginPageBtnName = "LoginPageBtn"
+let SubmitBtnName = "SubmitBtn"
+let SkipRegistrationBtnName = "SkipRegistrationBtn"
+let LoginSubmitBtnName = "LoginSubmitBtn"
+
+let LoginPageBtnCategory   : UInt32 = 0x1 << 0
+let SubmitBtnCategory : UInt32 = 0x1 << 1
+let SkipRegistrationBtnCategory  : UInt32 = 0x1 << 2
+let LoginSubmitBtnCategory : UInt32 = 0x1 << 3
+
+
 
 class Registration: SKScene {
-    
     lazy var gameState: GKStateMachine = GKStateMachine(states: [
         RegistrationState(scene: self)])
     
@@ -21,7 +33,7 @@ class Registration: SKScene {
     var usernameTextField = UITextField()
     var passwordTextField = UITextField()
     var passwordConfirmTextField = UITextField()
-    var signUpBtn:SKShapeNode!
+    
     
     func go_to_main_menu() {
         let transition = SKTransition.reveal(with: .down, duration: 1.0)
@@ -68,6 +80,8 @@ class Registration: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         gameState.enter(RegistrationState.self)
+        let LoginSubmitBtn = childNode(withName: LoginSubmitBtnName) as! SKSpriteNode
+        LoginSubmitBtn.isHidden = true
         
         
         nameTextField = UITextField(frame: CGRect.init(x: 70, y: view.frame.size.height - 600 , width: view.frame.size.width/1.5, height: 30))
@@ -107,11 +121,12 @@ class Registration: SKScene {
             
             if touchedNode.name == "SubmitBtn" {
                 
+                
                 if passwordTextField.text != passwordConfirmTextField.text {
                     password_confirmed = false
                 } else {
                 let headers = [
-                    "Authorization":"Token token=629fc8b7dfcf38cb7c1348cf8159e406",
+                    "Authorization":"Token token=4212c4baf755266c1657743cecd71eed",
                     ]
                 let user_params: [String : AnyObject] = [
                     "name" : nameTextField.text as AnyObject,
@@ -122,18 +137,20 @@ class Registration: SKScene {
                 ]
                 
                 // The request to post a new member to the database
-                Alamofire.request("http://localhost:3000/users", method: .post, parameters: user_params, encoding: JSONEncoding.default, headers: headers)
+                Alamofire.request("http://localhost:3000/users/", method: .post, parameters: user_params, encoding: JSONEncoding.default, headers: headers)
                     .validate(statusCode: 200..<600) // checks to see if it's valid JSON
                     .responseJSON() { response in
                         if (response.result.error == nil) {
-                            debugPrint(user_params)
+                            debugPrint(response)
+                            let current_user = JSON(response)
+                            print(current_user)
                             debugPrint("HTTP Response Body: \(response.data)")
                         } else {
                             debugPrint("HTTP Request failed: \(response.result.error)")
                         }
                     }
                 }
-                if password_confirmed == true {
+                if (password_confirmed == true) && (passwordTextField.text != "") {
                     go_to_main_menu() //Add error message
                 }
             }
@@ -143,7 +160,43 @@ class Registration: SKScene {
             }
             
             if touchedNode.name == "LoginPageBtn" {
-                //set up login page
+                let LoginSubmitBtn = childNode(withName: LoginSubmitBtnName) as! SKSpriteNode
+                let SubmitBtn = childNode(withName: SubmitBtnName) as! SKSpriteNode
+                let LoginPageBtn = childNode(withName: LoginPageBtnName) as! SKSpriteNode
+                nameTextField.removeFromSuperview()
+                passwordConfirmTextField.removeFromSuperview()
+                usernameTextField.removeFromSuperview()
+                SubmitBtn.removeFromParent()
+                LoginPageBtn.removeFromParent()
+                LoginSubmitBtn.isHidden = false
+            }
+            
+            if touchedNode.name == "LoginSubmitBtn" {
+                let headers = [
+                    "Authorization":"Token token=4212c4baf755266c1657743cecd71eed",
+                    ]
+                
+                let user_params: [String : AnyObject] = [
+                    "email" : emailTextField.text as AnyObject,
+                    "password_digest" : passwordTextField.text as AnyObject,
+                ]
+                
+                let id = "1"
+                
+                Alamofire.request("http://localhost:3000/users/\(id))", parameters: user_params, headers: headers)
+                    .validate(statusCode: 200..<600) // checks to see if it's valid JSON
+                    .responseJSON() { response in
+                        if (response.result.error == nil) {
+                            debugPrint(response)
+//                            let userData = JSON(data: response.data!)
+//                            let username = userData["username"].string
+//                            debugPrint(userData)
+                            debugPrint("HTTP Response Body: \(response.data)")
+                        } else {
+                            debugPrint("HTTP Request failed: \(response.result.error)")
+                        }
+                    }
+                
             }
         }
     }
